@@ -11,40 +11,35 @@ public class AssessmentReview {
     public static int difference(int num1, int num2) {
         return num1 - num2;
     }
+
     public static double difference(double num1, double num2) {
-        return (num1 - num2);
+        return num1 - num2;
     }
-
-    public static double median(int [] numArray) {
+    
+    public static double median(int [] array) {
+        Arrays.sort(array);
         double median = 0;
-        int length = numArray.length;
-        Arrays.sort(numArray);
-        if (length % 2 != 0) {
-            median = (double) numArray[length / 2];
+        if (array.length % 2 == 0) {
+            return ((double) array[array.length / 2] + (double) array[array.length / 2 - 1]) / 2;
         } else {
-            median = ((double) numArray[(length - 1) / 2 ] + (double) numArray[length / 2]) / 2;
+            return (double) array[array.length / 2];
         }
-
-        return median;
+        
     }
 
     public static ArrayList<Cat> uppercaseCatColor(ArrayList<Cat> cats) {
-
-        ArrayList<Cat> output = new ArrayList<>();
+        ArrayList<Cat> uppercaseColor = new ArrayList<>();
 
         for (Cat cat : cats) {
-            String color = cat.getColor();
-            if (!color.equals(color.toUpperCase())) {
-                cat.setColor(color.toUpperCase());
+            if (!cat.getColor().equals(cat.getColor().toUpperCase())) {
+                cat.setColor(cat.getColor().toUpperCase());
             }
-            output.add(cat);
+            uppercaseColor.add(cat);
         }
-        return output;
+        return uppercaseColor;
     }
+
 }
-
-
-
 
 //7. On your **AssessmentReview** class create a static method named `uppercaseCatColor`.
 //
@@ -53,23 +48,22 @@ public class AssessmentReview {
 //        - Receive an `ArrayList` of **Cat** objects as a parameter.
 //        - The method should return an `ArrayList` of **Cat** objects, where each **Cat**
 //        object's `color` field is in uppercase.
+
+//    - Check to make sure that each **Cat**'s `color` field is already uppercase
+//    - If the `color` field is not already uppercase, **_USE THE SETTER_** to change the `color` field to uppercase.
+
+
+
+
+//1. In the **AssessmentReview** class inside the `java` directory.
 //
-//        Sample Input
-//
-//        ```
-//        a Cat object with a color of "black"
-//        a Cat object with a color of "orange"
-//        a Cat object with a color of "white"
-//        ```
-//        Sample Output
-//
-//        ```
-//        a Cat object with a color of "BLACK"
-//        a Cat object with a color of "ORANGE"
-//        a Cat object with a color of "WHITE"
-//        ```
-//
-//        Hints
-//
-//        - Check to make sure that each **Cat**'s `color` field is already uppercase
-//        - If the `color` field is not already uppercase, **_USE THE SETTER_** to change the `color` field to uppercase.
+//        - Write a public static method named `cubed` that accepts an integer as
+//        an argument and returns that integer to the third power.
+//        - Write a public static method named `difference` that accepts two arguments and
+//        that works with both integers and doubles (use method overloading). Both variations of the method
+//        should return the result of subtracting the second argument from the first argument.
+//        - Write a public static method named `median` that receives an array of
+//        `int`s (please use an array, not a `Collection`) and returns the median as a `double`.
+//        - (Hint: there are examples of how to find median of an array in Java all over the internet)
+//        - (Hint: the sort method on the Arrays class may be very helpful here)
+//        - (Hint: make sure the median of `[1, 3, 4, 2, 6, 5, 8, 7]` is `4.5`)

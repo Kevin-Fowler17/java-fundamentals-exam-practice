@@ -1,15 +1,17 @@
 public class Pet {
+
     private int age;
     private boolean isRescue;
     private String name;
 
     public Pet(int age, boolean isRescue, String name) {
-        if (name == null) {
-            throw new IllegalArgumentException("Name cannot be null.");
-        }
         this.age = age;
         this.isRescue = isRescue;
-        this.name = name;
+        if (name == null) {
+            throw new IllegalArgumentException("Parameters can't be null");
+        } else {
+            this.name = name;
+        }
     }
 
     public int getAge() {
@@ -25,7 +27,7 @@ public class Pet {
     }
 
     public void setRescue(boolean rescue) {
-        this.isRescue = rescue;
+        isRescue = rescue;
     }
 
     public String getName() {
@@ -34,12 +36,13 @@ public class Pet {
 
     public void setName(String name) {
         if (name == null) {
-            throw new IllegalArgumentException("Name cannot be null.");
+            throw new IllegalArgumentException("Parameters can't be null");
+        } else {
+            this.name = name;
         }
-        this.name = name;
     }
-}
 
+}
 
 //2. Create a class named **Pet** inside of `java`.
 //
